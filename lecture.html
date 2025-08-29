@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3SE1VCYK5L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3SE1VCYK5L');
+</script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PNQD5QKR');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NoorQuran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0066cc;
+      --primary-dark: #004499;
+      --primary-light: #3388ff;
+      --accent: #ff4444;
+      
+      /* Thème sombre - amélioré */
+      --dark-bg: #1a1a1a;
+      --dark-card: #2a2a2a;
+      --dark-hover: #333333;
+      --dark-text: #ffffff;
+      --dark-text-secondary: #e0e0e0;
+      --glass-bg: rgba(42, 42, 42, 0.95);
+      --border: rgba(255, 255, 255, 0.2);
+      --shadow: 0 8px 32px rgba(0, 102, 204, 0.3);
+      --glow: 0 0 20px rgba(0, 102, 204, 0.4);
+      
+      /* Thème clair */
+      --light-bg: #ffffff;
+      --light-card: #f8f9fa;
+      --light-hover: #e9ecef;
+      --light-text: #1a1a1a;
+      --light-text-secondary: #495057;
+      --light-glass-bg: rgba(248, 249, 250, 0.95);
+      --light-border: rgba(0, 0, 0, 0.1);
+      --light-shadow: 0 8px 32px rgba(0, 102, 204, 0.15);
+    }
+
+    /* Variables actives par défaut (thème sombre amélioré) */
+    :root {
+      --current-bg: var(--dark-bg);
+      --current-card: var(--dark-card);
+      --current-hover: var(--dark-hover);
+      --current-text: var(--dark-text);
+      --current-text-secondary: var(--dark-text-secondary);
+      --current-glass-bg: var(--glass-bg);
+      --current-border: var(--border);
+      --current-shadow: var(--shadow);
+    }
+
+    /* Thème clair activé */
+    [data-theme="light"] {
+      --current-bg: var(--light-bg);
+      --current-card: var(--light-card);
+      --current-hover: var(--light-hover);
+      --current-text: var(--light-text);
+      --current-text-secondary: var(--light-text-secondary);
+      --current-glass-bg: var(--light-glass-bg);
+      --current-border: var(--light-border);
+      --current-shadow: var(--light-shadow);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: var(--current-bg);
+      color: var(--current-text);
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Bouton de basculement de thème */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--current-glass-bg);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--current-border);
+      border-radius: 50px;
+      padding: 12px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      color: var(--current-text);
+      box-shadow: var(--current-shadow);
+    }
+
+    .theme-toggle:hover {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Header avec meilleur contraste */
+    header {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--current-glass-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 2px solid var(--current-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(var(--glow)) brightness(1.2);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
+    .site-title a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Navigation avec meilleur contraste */
+    nav {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    nav a {
+      color: var(--current-text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      background: var(--current-glass-bg);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--current-border);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    nav a:hover::before {
+      left: 100%;
+    }
+
+    nav a.active,
+    nav a:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: var(--current-shadow);
+      border-color: var(--primary);
+    }
+
+    /* Particules flottantes */
+    .floating-particles {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: var(--primary);
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: float 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; width: 4px; height: 4px; }
+    .particle:nth-child(2) { left: 20%; animation-delay: 1s; width: 6px; height: 6px; }
+    .particle:nth-child(3) { left: 30%; animation-delay: 2s; width: 3px; height: 3px; }
+    .particle:nth-child(4) { left: 40%; animation-delay: 3s; width: 5px; height: 5px; }
+    .particle:nth-child(5) { left: 50%; animation-delay: 4s; width: 4px; height: 4px; }
+    .particle:nth-child(6) { left: 60%; animation-delay: 5s; width: 6px; height: 6px; }
+    .particle:nth-child(7) { left: 70%; animation-delay: 6s; width: 3px; height: 3px; }
+    .particle:nth-child(8) { left: 80%; animation-delay: 7s; width: 5px; height: 5px; }
+    .particle:nth-child(9) { left: 90%; animation-delay: 8s; width: 4px; height: 4px; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) scale(0); }
+      50% { transform: translateY(-100px) scale(1); }
+    }
+
+    /* Container principal avec style d'index.html */
+    .container {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 4rem 3rem;
+      background: var(--current-glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 32px;
+      border: 2px solid var(--current-border);
+      box-shadow: var(--current-shadow);
+      width: 90%;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 102, 204, 0.05) 0%, transparent 50%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .surah-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--current-glass-bg);
+      border-radius: 20px;
+      border: 2px solid var(--current-border);
+      position: relative;
+      z-index: 2;
+    }
+
+    .surah-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--current-text);
+      text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .surah-info {
+      color: var(--current-text-secondary);
+      font-size: 1.2rem;
+      font-weight: 500;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Contrôles de navigation avec style moderne */
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--current-glass-bg);
+      border-radius: 20px;
+      border: 2px solid var(--current-border);
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav-select {
+      background: var(--current-glass-bg);
+      color: var(--current-text);
+      border: 2px solid var(--current-border);
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      min-width: 300px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
+      outline: none;
+    }
+
+    .nav-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 50px;
+      box-shadow: 0 8px 30px rgba(0, 102, 204, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .nav-btn:hover::before {
+      left: 100%;
+    }
+
+    .nav-btn:hover:not(:disabled) {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 50px rgba(0, 102, 204, 0.6);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Gestionnaire audio moderne avec style harmonisé */
+    .audio-player {
+      background: var(--current-glass-bg);
+      border-radius: 20px;
+      border: 2px solid var(--current-border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .audio-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .audio-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .control-btn {
+      background: var(--current-glass-bg);
+      color: var(--current-text-secondary);
+      border: 2px solid var(--current-border);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .control-btn.play {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-size: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0, 102, 204, 0.4);
+    }
+
+    .control-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+    }
+
+    .control-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+    }
+
+    .speed-control {
+      background: var(--current-glass-bg);
+      color: var(--current-text);
+      border: 2px solid var(--current-border);
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .speed-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 20px rgba(0, 102, 204, 0.3);
+      outline: none;
+    }
+
+    /* Barre de progression moderne */
+    .progress-container {
+      margin: 1.5rem 0;
+      padding: 0 1rem;
+    }
+
+    .time-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--current-text-secondary);
+      font-weight: 500;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--current-glass-bg);
+      border-radius: 4px;
+      border: 2px solid var(--current-border);
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.1s ease;
+      position: relative;
+    }
+
+    .progress-thumb {
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .progress-bar:hover .progress-thumb,
+    .progress-bar.dragging .progress-thumb {
+      opacity: 1;
+    }
+
+    .progress-bar:hover {
+      border-color: var(--primary);
+    }
+
+    /* Récitateurs avec style moderne */
+    .reciters {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--current-glass-bg);
+      border-radius: 20px;
+      border: 2px solid var(--current-border);
+      backdrop-filter: blur(20px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .reciters-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .reciter-chips {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0.8rem;
+      justify-items: center;
+    }
+
+    .reciter-chip {
+      background: var(--current-glass-bg);
+      color: var(--current-text-secondary);
+      border: 2px solid var(--current-border);
+      border-radius: 20px;
+      padding: 0.7rem 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .reciter-chip::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .reciter-chip:hover::before {
+      left: 100%;
+    }
+
+    .reciter-chip:hover,
+    .reciter-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+    }
+
+    /* Versets avec style harmonisé */
+    .ayah {
+      background: var(--current-glass-bg);
+      border: 2px solid var(--current-border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(20px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .ayah:hover {
+      border-color: var(--primary);
+      box-shadow: 0 8px 25px rgba(0, 102, 204, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .ayah-number {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    }
+
+    .arabic {
+      font-family: 'Scheherazade New', serif;
+      font-size: 1.8rem;
+      text-align: right;
+      color: var(--current-text);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .french {
+      color: var(--current-text-secondary);
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* Loading avec style harmonisé */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: var(--current-text-secondary);
+      font-size: 1.2rem;
+    }
+
+    .spinner {
+      border: 3px solid var(--current-border);
+      border-top: 3px solid var(--primary);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Footer moderne */
+    footer {
+      margin-top: auto;
+      padding: 3rem 0 2rem 0;
+      text-align: center;
+      color: var(--current-text-secondary);
+      background: var(--current-glass-bg);
+      backdrop-filter: blur(20px);
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-top: 2px solid var(--current-border);
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    /* Détection automatique du thème système */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --current-bg: var(--light-bg);
+        --current-card: var(--light-card);
+        --current-hover: var(--light-hover);
+        --current-text: var(--light-text);
+        --current-text-secondary: var(--light-text-secondary);
+        --current-glass-bg: var(--light-glass-bg);
+        --current-border: var(--light-border);
+        --current-shadow: var(--light-shadow);
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 1100px) {
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+      
+      .container {
+        max-width: 95%;
+        padding: 3rem 2rem;
+        border-radius: 24px;
+        margin: 2rem auto;
+      }
+      
+      header {
+        padding: 1.2rem 1.5rem;
+      }
+      
+      .surah-title {
+        font-size: 2.2rem;
+      }
+      
+      .surah-info {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .theme-toggle {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 1rem;
+      }
+      
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      nav {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .container {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        margin: 1.5rem auto;
+      }
+      
+      .surah-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      
+      .surah-info {
+        font-size: 1rem;
+      }
+      
+      .nav-controls {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+      }
+      
+      .nav-select {
+        min-width: 100%;
+        order: -1;
+      }
+      
+      .nav-btn {
+        flex: 1;
+        min-width: 120px;
+      }
+      
+      .audio-controls {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      
+      .control-btn.play {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .reciter-chips {
+        grid-template-columns: 1fr;
+      }
+      
+      .reciter-chip {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+        margin: 1rem auto;
+      }
+      
+      .surah-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .surah-info {
+        font-size: 0.9rem;
+      }
+      
+      .control-btn.play {
+        width: 55px;
+        height: 55px;
+        font-size: 1.2rem;
+      }
+      
+      .arabic {
+        font-size: 1.4rem;
+      }
+      
+      .french {
+        font-size: 1rem;
+      }
+    }
+
+    /* Animation d'entrée pour toute la page */
+    body {
+      animation: pageLoad 1s ease-out;
+    }
+
+    @keyframes pageLoad {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mode haute luminosité pour conditions ensoleillées */
+    .high-contrast {
+      --current-bg: #ffffff !important;
+      --current-card: #f0f0f0 !important;
+      --current-text: #000000 !important;
+      --current-text-secondary: #333333 !important;
+      --current-border: rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .high-contrast .surah-title,
+    .high-contrast .surah-info,
+    .high-contrast nav a,
+    .high-contrast footer,
+    .high-contrast .audio-title,
+    .high-contrast .reciters-title {
+      text-shadow: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNQD5QKR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌓 Thème</button>
+
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <header>
+    <div class="header-left">
+      <div class="logo-stack">
+        <img src="logo.png" alt="Logo Noorquran" class="logo-img">
+        <span class="site-title"><a href="index.html">NoorQuran</a></span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="sourates.html">Sourates</a>
+      <a href="#" class="active">Lecture</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="surah-header">
+      <h1 class="surah-title" id="surahTitle">Chargement...</h1>
+      <p class="surah-info" id="surahInfo"></p>
+    </div>
+
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" disabled>◀</button>
+      <select class="nav-select" id="surahSelect">
+        <option>Chargement des sourates...</option>
+      </select>
+      <button class="nav-btn" id="nextBtn" disabled>▶</button>
+    </div>
+
+    <div class="reciters">
+      <div class="reciters-title">🎧 Choisir un récitateur</div>
+      <div class="reciter-chips" id="reciterChips"></div>
+    </div>
+
+    <div class="audio-player">
+      <div class="audio-title">
+        <span>🎵</span>
+        Lecteur Audio
+      </div>
+      
+      <div class="audio-controls">
+        <button class="control-btn play" id="playBtn" title="Lecture/Pause">▶</button>
+        <button class="control-btn" id="loopBtn" title="Répéter">🔄</button>
+        <button class="control-btn" id="autoPlayBtn" title="Lecture automatique">⭐</button>
+        <select class="speed-control" id="speedSelect">
+          <option value="0.75">0.75x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+        </select>
+        <button class="control-btn" id="downloadBtn" title="Télécharger">💾</button>
+      </div>
+
+      <div class="progress-container">
+        <div class="time-display">
+          <span id="currentTime">0:00</span>
+          <span id="totalTime">0:00</span>
+        </div>
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill">
+            <div class="progress-thumb"></div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="audioPlayer" preload="metadata"></audio>
+    </div>
+
+    <div id="ayahsContainer">
+      <div class="loading">
+        <div class="spinner"></div>
+        Chargement des versets...
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Falilou Diouf. Tous droits réservés.
+  </footer>
+
+  <script>
+    // Configuration API
+    const API_BASE = 'https://api.alquran.cloud/v1/surah';
+
+    // RÉCITATEURS ÉLARGIS - Nouveaux récitateurs ajoutés
+    const RECITERS = [
+      // Récitateurs principaux populaires
+      {
+        id: 'alafasy',
+        name: 'Mishary Rashid Alafasy',
+        country: '🇰🇼 Koweït',
+        baseUrl: 'https://server8.mp3quran.net/afs'
+      },
+      {
+        id: 'abdulbasit',
+        name: 'Abdul Basit Abdul Samad',
+        country: '🇪🇬 Égypte',
+        baseUrl: 'https://server7.mp3quran.net/basit'
+      },
+      {
+        id: 'sudais',
+        name: 'Abdul Rahman Al-Sudais',
+        country: '🇸🇦 Arabie Saoudite',
+        baseUrl: 'https://server11.mp3quran.net/sds'
+      },
+      {
+        id: 'muaiqly',
+        name: 'Maher Al Mueaqly',
+        country: '🇸🇦 Arabie Saoudite',
+        baseUrl: 'https://server12.mp3quran.net/maher'
+      },
+      {
+        id: 'minshawi',
+        name: 'Mohamed Siddiq El-Minshawi',
+        country: '🇪🇬 Égypte',
+        baseUrl: 'https://server10.mp3quran.net/minsh'
+      },
+      {
+        id: 'ajmy',
+        name: 'Ahmad Al-Ajmy',
+        country: '🇸🇦 Arabie Saoudite',
+        baseUrl: 'https://server10.mp3quran.net/ajm'
+      },
+      {
+        id: 'hani',
+        name: 'Hani Ar-Rifai',
+        country: '🇸🇦 Arabie Saoudite',
+        baseUrl: 'https://server8.mp3quran.net/hani'
+      },
+      {
+        id: 'fares',
+        name: 'Fares Abbad',
+        country: '🇰🇼 Koweït',
+        baseUrl: 'https://server8.mp3quran.net/frs_a'
+      },
+      // NOUVEAUX RÉCITATEURS AJOUTÉS
+      {
+        id: 'husary',
+        name: 'Mahmoud Khalil Al-Husary',
+        country: '🇪🇬 Égypte',
+        baseUrl: 'https://server13.mp3quran.net/husr'
+      }
+    ];
+
+    // État de l'application
+    let currentSurah = 1;
+    let currentReciter = RECITERS[0];
+    let isPlaying = false;
+    let isLooping = false;
+    let isAutoPlay = false;
+    let allSurahs = [];
+    let isDragging = false;
+
+    // Éléments DOM
+    const surahTitle = document.getElementById('surahTitle');
+    const surahInfo = document.getElementById('surahInfo');
+    const surahSelect = document.getElementById('surahSelect');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const reciterChips = document.getElementById('reciterChips');
+    const playBtn = document.getElementById('playBtn');
+    const loopBtn = document.getElementById('loopBtn');
+    const autoPlayBtn = document.getElementById('autoPlayBtn');
+    const speedSelect = document.getElementById('speedSelect');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const ayahsContainer = document.getElementById('ayahsContainer');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+    const currentTimeEl = document.getElementById('currentTime');
+    const totalTimeEl = document.getElementById('totalTime');
+
+    // Système de thèmes
+    let currentTheme = localStorage.getItem('theme') || 'auto';
+
+    function setTheme(theme) {
+      const root = document.documentElement;
+      
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+      } else if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      
+      localStorage.setItem('theme', theme);
+      currentTheme = theme;
+    }
+
+    function toggleTheme() {
+      const themes = ['auto', 'light', 'dark'];
+      const currentIndex = themes.indexOf(currentTheme);
+      const nextTheme = themes[(currentIndex + 1) % themes.length];
+      
+      setTheme(nextTheme);
+      
+      const button = document.querySelector('.theme-toggle');
+      const labels = {
+        'auto': '🌓 Auto',
+        'light': '☀️ Clair',
+        'dark': '🌙 Sombre'
+      };
+      button.textContent = labels[nextTheme];
+    }
+
+    // Générer l'URL audio avec formatage numérique approprié
+    function generateAudioUrl(surahNumber, reciter) {
+      // Formater le numéro de sourate avec des zéros (001, 002, etc.)
+      const paddedNumber = surahNumber.toString().padStart(3, '0');
+      return `${reciter.baseUrl}/${paddedNumber}.mp3`;
+    }
+
+    // Fonction pour tester si une URL audio existe avec timeout
+    async function testAudioUrl(url, timeout = 10000) {
+      return new Promise((resolve) => {
+        const audio = new Audio();
+        const timer = setTimeout(() => {
+          audio.src = '';
+          resolve(false);
+        }, timeout);
+        
+        audio.addEventListener('canplaythrough', () => {
+          clearTimeout(timer);
+          resolve(true);
+        });
+        
+        audio.addEventListener('error', () => {
+          clearTimeout(timer);
+          resolve(false);
+        });
+        
+        audio.src = url;
+      });
+    }
+
+    // Initialisation
+    async function init() {
+      try {
+        // Récupérer l'ID de la sourate depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        currentSurah = parseInt(urlParams.get('surah')) || 1;
+
+        // Charger la liste des sourates
+        await loadSurahList();
+        
+        // Initialiser les récitateurs
+        initReciters();
+        
+        // Charger la sourate actuelle
+        await loadSurah(currentSurah);
+        
+        // Initialiser les événements
+        initEvents();
+        
+        // Initialiser le thème
+        setTheme(currentTheme);
+        
+        console.log('✅ Application initialisée avec succès');
+        
+      } catch (error) {
+        console.error('❌ Erreur d\'initialisation:', error);
+        ayahsContainer.innerHTML = '<div class="loading">Erreur de chargement de l\'application</div>';
+      }
+    }
+
+    // Charger la liste des sourates
+    async function loadSurahList() {
+      try {
+        const response = await fetch(API_BASE);
+        const data = await response.json();
+        
+        if (data.code !== 200) {
+          throw new Error('Erreur API: ' + data.status);
+        }
+        
+        allSurahs = data.data;
+
+        // Remplir le select
+        surahSelect.innerHTML = '';
+        allSurahs.forEach(surah => {
+          const option = document.createElement('option');
+          option.value = surah.number;
+          option.textContent = `${surah.number}. ${surah.englishName} (${surah.name})`;
+          if (surah.number === currentSurah) {
+            option.selected = true;
+          }
+          surahSelect.appendChild(option);
+        });
+        
+        console.log('✅ Liste des sourates chargée:', allSurahs.length);
+        
+      } catch (error) {
+        console.error('❌ Erreur chargement sourates:', error);
+        surahSelect.innerHTML = '<option>Erreur de chargement</option>';
+      }
+    }
+
+    // Initialiser les récitateurs
+    function initReciters() {
+      reciterChips.innerHTML = '';
+      RECITERS.forEach((reciter, index) => {
+        const chip = document.createElement('div');
+        chip.className = `reciter-chip ${index === 0 ? 'active' : ''}`;
+        chip.innerHTML = `${reciter.country} ${reciter.name}`;
+        chip.title = `${reciter.name} - ${reciter.country}`;
+        chip.onclick = () => selectReciter(reciter, chip);
+        reciterChips.appendChild(chip);
+      });
+    }
+
+    // Sélectionner un récitateur
+    async function selectReciter(reciter, chipElement) {
+      const previousChip = document.querySelector('.reciter-chip.active');
+      const previousReciter = currentReciter;
+      
+      // Afficher un indicateur de chargement
+      const originalText = chipElement.innerHTML;
+      chipElement.style.opacity = '0.6';
+      chipElement.innerHTML = `⏳ Test...`;
+      
+      try {
+        const testUrl = generateAudioUrl(currentSurah, reciter);
+        const isWorking = await testAudioUrl(testUrl, 8000);
+        
+        if (!isWorking) {
+          throw new Error('Audio indisponible');
+        }
+        
+        console.log(`🧪 Test récitateur: ${reciter.name} - ${testUrl}`);
+        
+        // Mettre à jour l'interface
+        document.querySelectorAll('.reciter-chip').forEach(chip => {
+          chip.classList.remove('active');
+        });
+        chipElement.classList.add('active');
+        
+        currentReciter = reciter;
+        await updateAudio();
+        
+        console.log(`✅ Récitateur changé: ${reciter.name}`);
+        chipElement.innerHTML = originalText;
+        chipElement.style.opacity = '1';
+        
+      } catch (error) {
+        console.error(`❌ Erreur avec ${reciter.name}:`, error);
+        
+        // Revenir au récitateur précédent
+        chipElement.classList.remove('active');
+        if (previousChip) {
+          previousChip.classList.add('active');
+        }
+        currentReciter = previousReciter;
+        
+        // Afficher une erreur temporaire
+        chipElement.innerHTML = `❌ Indisponible`;
+        chipElement.style.opacity = '0.5';
+        
+        setTimeout(() => {
+          chipElement.innerHTML = originalText;
+          chipElement.style.opacity = '1';
+        }, 3000);
+      }
+    }
+
+    // Charger une sourate
+    async function loadSurah(surahNumber, shouldAutoPlay = false) {
+      try {
+        currentSurah = surahNumber;
+        ayahsContainer.innerHTML = '<div class="loading"><div class="spinner"></div>Chargement des versets...</div>';
+
+        console.log(`📖 Chargement sourate ${surahNumber}...`);
+
+        // Charger les données en parallèle
+        const [surahResponse, frenchResponse] = await Promise.all([
+          fetch(`${API_BASE}/${surahNumber}`),
+          fetch(`${API_BASE}/${surahNumber}/fr.hamidullah`)
+        ]);
+
+        if (!surahResponse.ok || !frenchResponse.ok) {
+          throw new Error('Erreur de chargement des données');
+        }
+
+        const surahData = await surahResponse.json();
+        const frenchData = await frenchResponse.json();
+
+        if (surahData.code !== 200 || frenchData.code !== 200) {
+          throw new Error('Erreur API');
+        }
+
+        const surah = surahData.data;
+        const frenchAyahs = frenchData.data.ayahs;
+
+        // Mettre à jour les informations
+        surahTitle.textContent = `${surah.englishName} (${surah.name})`;
+        surahInfo.textContent = `${surah.numberOfAyahs} versets • Révélée à ${surah.revelationType === 'Meccan' ? 'La Mecque' : 'Médine'}`;
+
+        // Afficher les versets
+        displayAyahs(surah.ayahs, frenchAyahs);
+
+        // Mettre à jour l'audio
+        await updateAudio(shouldAutoPlay);
+
+        // Mettre à jour les contrôles
+        updateNavigation();
+        surahSelect.value = surahNumber;
+
+        // Mettre à jour l'URL
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('surah', surahNumber);
+        window.history.pushState({}, '', newUrl);
+
+        console.log(`✅ Sourate ${surahNumber} chargée avec succès`);
+
+      } catch (error) {
+        console.error('❌ Erreur lors du chargement de la sourate:', error);
+        ayahsContainer.innerHTML = '<div class="loading">❌ Erreur de chargement de la sourate</div>';
+      }
+    }
+
+    // Afficher les versets
+    function displayAyahs(arabicAyahs, frenchAyahs) {
+      ayahsContainer.innerHTML = '';
+      
+      arabicAyahs.forEach((ayah, index) => {
+        const ayahDiv = document.createElement('div');
+        ayahDiv.className = 'ayah';
+        ayahDiv.innerHTML = `
+          <div class="ayah-number">${ayah.numberInSurah}</div>
+          <div class="arabic">${ayah.text}</div>
+          <div class="french">${frenchAyahs[index]?.text || ''}</div>
+        `;
+        ayahsContainer.appendChild(ayahDiv);
+      });
+    }
+
+    // Mettre à jour l'audio
+    async function updateAudio(shouldAutoPlay = false) {
+      return new Promise(async (resolve, reject) => {
+        console.log(`🎵 Chargement audio: ${currentReciter.name} - Sourate ${currentSurah}`);
+        
+        // Arrêter l'audio actuel
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        
+        try {
+          const audioUrl = generateAudioUrl(currentSurah, currentReciter);
+          const isWorking = await testAudioUrl(audioUrl, 10000);
+          
+          if (!isWorking) {
+            throw new Error(`Audio indisponible pour la sourate ${currentSurah}`);
+          }
+          
+          console.log(`📡 URL: ${audioUrl}`);
+          
+          audioPlayer.src = audioUrl;
+          audioPlayer.playbackRate = parseFloat(speedSelect.value);
+
+          // Gérer les événements
+          const handleCanPlay = () => {
+            cleanup();
+            console.log(`✅ Audio prêt: ${currentReciter.name}`);
+            
+            progressFill.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+            
+            if (shouldAutoPlay && isAutoPlay) {
+              audioPlayer.play().then(() => {
+                console.log(`▶️ Lecture automatique démarrée`);
+              }).catch(error => {
+                console.warn('⚠️ Erreur lecture automatique:', error);
+              });
+            } else {
+              isPlaying = false;
+              playBtn.textContent = '▶';
+              playBtn.classList.remove('active');
+            }
+            
+            resolve();
+          };
+
+          const handleError = () => {
+            cleanup();
+            console.error(`❌ Erreur audio: ${audioUrl}`);
+            reject(new Error(`Erreur de chargement audio`));
+          };
+
+          const cleanup = () => {
+            audioPlayer.removeEventListener('canplay', handleCanPlay);
+            audioPlayer.removeEventListener('error', handleError);
+            clearTimeout(timeoutId);
+          };
+
+          audioPlayer.addEventListener('canplay', handleCanPlay);
+          audioPlayer.addEventListener('error', handleError);
+          
+          // Timeout de sécurité
+          const timeoutId = setTimeout(() => {
+            cleanup();
+            console.warn(`⏰ Timeout chargement audio`);
+            reject(new Error(`Timeout de chargement`));
+          }, 15000);
+
+          // Commencer le chargement
+          audioPlayer.load();
+          
+        } catch (error) {
+          console.error(`❌ Erreur lors de la préparation audio:`, error);
+          reject(error);
+        }
+      });
+    }
+
+    // Mettre à jour la navigation
+    function updateNavigation() {
+      prevBtn.disabled = currentSurah <= 1;
+      nextBtn.disabled = currentSurah >= 114;
+    }
+
+    // Contrôles de lecture
+    function togglePlay() {
+      if (audioPlayer.paused) {
+        audioPlayer.play().catch(error => {
+          console.error('❌ Erreur de lecture:', error);
+        });
+      } else {
+        audioPlayer.pause();
+      }
+    }
+
+    function toggleLoop() {
+      isLooping = !isLooping;
+      audioPlayer.loop = isLooping;
+      loopBtn.classList.toggle('active', isLooping);
+    }
+
+    function toggleAutoPlay() {
+      isAutoPlay = !isAutoPlay;
+      autoPlayBtn.classList.toggle('active', isAutoPlay);
+    }
+
+    function downloadAudio() {
+      if (audioPlayer.src) {
+        const link = document.createElement('a');
+        link.href = audioPlayer.src;
+        link.download = `surah-${currentSurah}-${currentReciter.id}.mp3`;
+        link.click();
+      }
+    }
+
+    // Utilitaires
+    function formatTime(seconds) {
+      if (isNaN(seconds) || seconds < 0) return '0:00';
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = Math.floor(seconds % 60);
+      return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    }
+
+    function updateProgress() {
+      if (isDragging) return;
+      
+      const currentTime = audioPlayer.currentTime;
+      const duration = audioPlayer.duration;
+      
+      if (duration > 0) {
+        const progress = (currentTime / duration) * 100;
+        progressFill.style.width = `${progress}%`;
+        currentTimeEl.textContent = formatTime(currentTime);
+        totalTimeEl.textContent = formatTime(duration);
+      }
+    }
+
+    function handleProgressClick(e) {
+      const rect = progressBar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const width = rect.width;
+      const progress = Math.max(0, Math.min(1, clickX / width));
+      
+      if (audioPlayer.duration) {
+        audioPlayer.currentTime = progress * audioPlayer.duration;
+      }
+    }
+
+    // Initialiser les événements
+    function initEvents() {
+      // Navigation
+      prevBtn.onclick = () => {
+        if (currentSurah > 1) {
+          loadSurah(currentSurah - 1);
+        }
+      };
+
+      nextBtn.onclick = () => {
+        if (currentSurah < 114) {
+          loadSurah(currentSurah + 1);
+        }
+      };
+
+      surahSelect.onchange = () => {
+        const selectedSurah = parseInt(surahSelect.value);
+        if (selectedSurah !== currentSurah) {
+          loadSurah(selectedSurah);
+        }
+      };
+
+      // Contrôles audio
+      playBtn.onclick = togglePlay;
+      loopBtn.onclick = toggleLoop;
+      autoPlayBtn.onclick = toggleAutoPlay;
+      downloadBtn.onclick = downloadAudio;
+
+      speedSelect.onchange = () => {
+        audioPlayer.playbackRate = parseFloat(speedSelect.value);
+      };
+
+      // Barre de progression
+      progressBar.onclick = handleProgressClick;
+      
+      progressBar.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        progressBar.classList.add('dragging');
+        handleProgressClick(e);
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+          handleProgressClick(e);
+        }
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          progressBar.classList.remove('dragging');
+        }
+      });
+
+      // Événements audio
+      audioPlayer.addEventListener('timeupdate', updateProgress);
+      
+      audioPlayer.addEventListener('loadedmetadata', () => {
+        totalTimeEl.textContent = formatTime(audioPlayer.duration);
+      });
+
+      audioPlayer.addEventListener('ended', () => {
+        playBtn.textContent = '▶';
+        playBtn.classList.remove('active');
+        isPlaying = false;
+        
+        // Lecture automatique de la sourate suivante
+        if (isAutoPlay && currentSurah < 114 && !isLooping) {
+          console.log('⭐ Passage automatique à la sourate suivante');
+          setTimeout(() => {
+            loadSurah(currentSurah + 1, true);
+          }, 1500);
+        }
+      });
+
+      audioPlayer.addEventListener('play', () => {
+        playBtn.textContent = '⏸';
+        playBtn.classList.add('active');
+        isPlaying = true;
+      });
+
+      audioPlayer.addEventListener('pause', () => {
+        playBtn.textContent = '▶';
+        playBtn.classList.remove('active');
+        isPlaying = false;
+      });
+
+      audioPlayer.addEventListener('error', (e) => {
+        console.error('❌ Erreur audio:', e);
+        playBtn.textContent = '❌';
+      });
+
+      // Raccourcis clavier
+      document.addEventListener('keydown', (e) => {
+        // Éviter les conflits avec les champs de saisie
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+        
+        switch(e.key) {
+          case ' ':
+            e.preventDefault();
+            togglePlay();
+            break;
+          case 'ArrowLeft':
+            e.preventDefault();
+            if (currentSurah > 1) loadSurah(currentSurah - 1);
+            break;
+          case 'ArrowRight':
+            e.preventDefault();
+            if (currentSurah < 114) loadSurah(currentSurah + 1);
+            break;
+        }
+      });
+    }
+
+    // Démarrer l'application
+    document.addEventListener('DOMContentLoaded', init);
+
+    // Gestion des erreurs globales
+    window.addEventListener('error', (e) => {
+      console.error('❌ Erreur globale:', e.error);
+    });
+
+    window.addEventListener('unhandledrejection', (e) => {
+      console.error('❌ Promise rejetée:', e.reason);
+    });
+  </script>
+</body>
+</html>

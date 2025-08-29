@@ -1,0 +1,2127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3SE1VCYK5L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3SE1VCYK5L');
+</script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PNQD5QKR');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sourates - NoorQuran</title>
+  <link rel="shortcut icon" type="image/svg" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+  --primary: #0066cc;
+  --primary-dark: #004499;
+  --primary-light: #3388ff;
+  --accent: #ff4444;
+  
+  /* Thème sombre - amélioré */
+  --dark-bg: #1a1a1a;
+  --dark-card: #2a2a2a;
+  --dark-hover: #333333;
+  --dark-text: #ffffff;
+  --dark-text-secondary: #e0e0e0;
+  --glass-bg: rgba(42, 42, 42, 0.95);
+  --border: rgba(255, 255, 255, 0.2);
+  --shadow: 0 8px 32px rgba(0, 102, 204, 0.3);
+  --glow: 0 0 20px rgba(0, 102, 204, 0.4);
+  
+  /* Thème clair */
+  --light-bg: #ffffff;
+  --light-card: #f8f9fa;
+  --light-hover: #e9ecef;
+  --light-text: #1a1a1a;
+  --light-text-secondary: #495057;
+  --light-glass-bg: rgba(248, 249, 250, 0.95);
+  --light-border: rgba(0, 0, 0, 0.1);
+  --light-shadow: 0 8px 32px rgba(0, 102, 204, 0.15);
+}
+
+/* Variables actives par défaut (thème sombre amélioré) */
+:root {
+  --current-bg: var(--dark-bg);
+  --current-card: var(--dark-card);
+  --current-hover: var(--dark-hover);
+  --current-text: var(--dark-text);
+  --current-text-secondary: var(--dark-text-secondary);
+  --current-glass-bg: var(--glass-bg);
+  --current-border: var(--border);
+  --current-shadow: var(--shadow);
+}
+
+/* Thème clair activé */
+[data-theme="light"] {
+  --current-bg: var(--light-bg);
+  --current-card: var(--light-card);
+  --current-hover: var(--light-hover);
+  --current-text: var(--light-text);
+  --current-text-secondary: var(--light-text-secondary);
+  --current-glass-bg: var(--light-glass-bg);
+  --current-border: var(--light-border);
+  --current-shadow: var(--light-shadow);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: var(--current-bg);
+  color: var(--current-text);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Bouton de basculement de thème */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--current-border);
+  border-radius: 50px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: var(--current-text);
+  box-shadow: var(--current-shadow);
+}
+
+.theme-toggle:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Header avec meilleur contraste */
+header {
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid var(--current-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer moderne - CORRIGÉ */
+footer {
+  margin: 2rem 0 0 0;
+  padding: 1.2rem 2rem;
+  text-align: center;
+  color: var(--current-text-secondary);
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(20px);
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-top: 2px solid var(--current-border);
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(var(--glow)) brightness(1.2);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.site-title a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation avec meilleur contraste */
+nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+nav a {
+  color: var(--current-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--current-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s;
+}
+
+nav a:hover::before {
+  left: 100%;
+}
+
+nav a.active,
+nav a:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--current-shadow);
+  border-color: var(--primary);
+}
+
+/* Particules flottantes */
+.floating-particles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; width: 4px; height: 4px; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1s; width: 6px; height: 6px; }
+.particle:nth-child(3) { left: 30%; animation-delay: 2s; width: 3px; height: 3px; }
+.particle:nth-child(4) { left: 40%; animation-delay: 3s; width: 5px; height: 5px; }
+.particle:nth-child(5) { left: 50%; animation-delay: 4s; width: 4px; height: 4px; }
+.particle:nth-child(6) { left: 60%; animation-delay: 5s; width: 6px; height: 6px; }
+.particle:nth-child(7) { left: 70%; animation-delay: 6s; width: 3px; height: 3px; }
+.particle:nth-child(8) { left: 80%; animation-delay: 7s; width: 5px; height: 5px; }
+.particle:nth-child(9) { left: 90%; animation-delay: 8s; width: 4px; height: 4px; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(100vh) scale(0); }
+  50% { transform: translateY(-100px) scale(1); }
+}
+
+/* Container principal moderne - CORRIGÉ */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem;
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  border: 2px solid var(--current-border);
+  box-shadow: var(--current-shadow);
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 102, 204, 0.05) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.main-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Titre avec meilleur contraste */
+h2 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--current-text);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Barre de recherche moderne */
+.search {
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.search input {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  border-radius: 25px;
+  border: 2px solid var(--current-border);
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(15px);
+  color: var(--current-text);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.15);
+}
+
+.search input::placeholder {
+  color: var(--current-text-secondary);
+  opacity: 0.7;
+}
+
+.search input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 12px 40px rgba(0, 102, 204, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Grille de sourates moderne */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.card {
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--current-border);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.15);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 102, 204, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(0, 102, 204, 0.3);
+  border-color: var(--primary);
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: 'Scheherazade New', serif;
+}
+
+.card h3 .number {
+  color: var(--primary-light);
+  font-size: 0.9em;
+  opacity: 0.9;
+  font-family: 'Inter', sans-serif;
+}
+
+.card .fr-title {
+  color: var(--current-text);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.card .desc {
+  font-size: 1rem;
+  color: var(--current-text-secondary);
+  background: rgba(0, 102, 204, 0.1);
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  border-radius: 12px;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.card .meta {
+  margin: 0 0 1.5rem 0;
+  color: var(--current-text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.card .meta strong {
+  color: var(--primary);
+}
+
+.card .revelation-type {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card .revelation-type.meccan {
+  background: rgba(255, 68, 68, 0.2);
+  color: var(--accent);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+}
+
+.card .revelation-type.medinan {
+  background: rgba(0, 102, 204, 0.2);
+  color: var(--primary);
+  border: 1px solid rgba(0, 102, 204, 0.3);
+}
+
+.card button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 30px rgba(0, 102, 204, 0.4);
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  user-select: none;
+  outline: none;
+}
+
+.card button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.card button:hover::before {
+  left: 100%;
+}
+
+.card button:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 102, 204, 0.6);
+  background: var(--primary-light);
+}
+
+.card button:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+.card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Message "Aucun résultat" */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--current-text-secondary);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.no-results h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--current-text);
+}
+
+/* Stats en haut */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.stat {
+  background: var(--current-glass-bg);
+  backdrop-filter: blur(15px);
+  border: 2px solid var(--current-border);
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--current-shadow);
+}
+
+.stat .number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat .label {
+  color: var(--current-text-secondary);
+  font-weight: 500;
+}
+
+/* Détection automatique du thème système */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --current-bg: var(--light-bg);
+    --current-card: var(--light-card);
+    --current-hover: var(--light-hover);
+    --current-text: var(--light-text);
+    --current-text-secondary: var(--light-text-secondary);
+    --current-glass-bg: var(--light-glass-bg);
+    --current-border: var(--light-border);
+    --current-shadow: var(--light-shadow);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1100px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .main-container {
+    max-width: 95%;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    margin: 2rem auto;
+  }
+  
+  header {
+    padding: 1.2rem 1.5rem;
+  }
+  
+  h2 {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-toggle {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  nav {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .main-container {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    margin: 1.5rem auto;
+  }
+  
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .main-container {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    margin: 1rem auto;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .search input {
+    padding: 1.2rem 1.5rem;
+    font-size: 1.1rem;
+  }
+  
+  .card {
+    padding: 1.2rem;
+    border-radius: 16px;
+  }
+  
+  .card button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 16px;
+  }
+  
+  nav a {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation d'entrée pour toute la page */
+body {
+  animation: pageLoad 1s ease-out;
+}
+
+@keyframes pageLoad {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mode haute luminosité pour conditions ensoleillées */
+.high-contrast {
+  --current-bg: #ffffff !important;
+  --current-card: #f0f0f0 !important;
+  --current-text: #000000 !important;
+  --current-text-secondary: #333333 !important;
+  --current-border: rgba(0, 0, 0, 0.3) !important;
+}
+
+.high-contrast h2,
+.high-contrast .card h3,
+.high-contrast nav a,
+.high-contrast footer {
+  text-shadow: none !important;
+}
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNQD5QKR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <!-- Bouton de basculement de thème -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Thème</button>
+
+  <!-- Particules flottantes -->
+  <div class="floating-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <header>
+    <div class="header-left">
+      <div class="logo-stack">
+        <img src="logo.png" alt="Logo Noorquran" class="logo-img">
+        <span class="site-title"><a href="index.html">NoorQuran</a></span>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="sourates.html" class="active">Sourates</a>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <h2>Liste des Sourates</h2>
+    
+    <!-- Statistiques -->
+    <div class="stats">
+      <div class="stat">
+        <span class="number">114</span>
+        <span class="label">Sourates</span>
+      </div>
+      <div class="stat">
+        <span class="number">6236</span>
+        <span class="label">Versets</span>
+      </div>
+    </div>
+    
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="🔍 Rechercher une sourate par nom, numéro...">
+    </div>
+    
+    <div class="grid" id="souratesList"></div>
+  </div>
+
+  <footer>
+    © 2025 Falilou Diouf. Tous droits réservés.
+  </footer>
+
+  <script>
+    // Données des sourates (exemple avec une seule sourate)
+    const souratesData = [
+      {
+        number: 1, 
+        name: "الفاتحة", 
+        englishName: "Al-Fatiha", 
+        frName: "L'Ouverture", 
+        ayahs: 7, 
+        revelationType: "Meccan", 
+        desc: "La sourate d'ouverture, récitée dans chaque prière. Elle est considérée comme l'essence même du Coran."
+      },
+      {
+        number: 2,
+        name: "البقرة",
+        englishName: "Al-Baqarah",
+        frName: "La Vache",
+        ayahs: 286,
+        revelationType: "Medinan",
+        desc: "La plus longue sourate du Coran, abordant de nombreux sujets, y compris la foi, la loi et la guidance."
+      },
+      {
+        number: 3,
+        name: "آل عمران",
+        englishName: "Al-Imran",
+        frName: "La Famille d'Imran",
+        ayahs: 200,
+        revelationType: "Medinan",
+        desc: "Cette sourate traite de divers sujets, y compris la foi, la famille et la communauté."
+      },
+      {
+        number: 4,
+        name: "النساء",
+        englishName: "An-Nisa",
+        frName: "Les Femmes",
+        ayahs: 176,
+        revelationType: "Medinan",
+        desc: "Cette sourate traite des droits des femmes, de la famille et des questions sociales."
+      },
+      {
+        number: 5,
+        name: "المائدة",
+        englishName: "Al-Ma'idah",
+        frName: "La Table Servie",
+        ayahs: 120,
+        revelationType: "Medinan",
+        desc: "Cette sourate aborde des thèmes liés à la loi, à la nourriture et aux relations intercommunautaires."
+      },
+      {
+        number: 6,
+        name: "الأنعام",
+        englishName: "Al-An'am",
+        frName: "Les Bestiaux",
+        ayahs: 165,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite de la foi, de la création et des signes de Dieu dans l'univers."
+      },
+      {
+        number: 7,
+        name: "الأنفال",
+        englishName: "Al-Anfal",
+        frName: "Le Butin",
+        ayahs: 75,
+        revelationType: "Medinan",
+        desc: "Cette sourate traite des questions de guerre, de paix et de la communauté musulmane."
+      },
+      {
+        number: 8,
+        name: "التوبة",
+        englishName: "At-Tawbah",
+        frName: "Le Repentir",
+        ayahs: 129,
+        revelationType: "Medinan",
+        desc: "Cette sourate aborde des thèmes de repentance, de foi et de la communauté musulmane."
+      },
+      {
+        number: 9,
+        name: "براءة",
+        englishName: "At-Tawbah",
+        frName: "Le Repentir",
+        ayahs: 129,
+        revelationType: "Medinan",
+        desc: "Cette sourate aborde des thèmes de repentance, de foi et de la communauté musulmane."
+      },
+      {
+        number: 10,
+        name: "يونس",
+        englishName: "Yunus",
+        frName: "Jonas",
+        ayahs: 109,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite de la mission de Jonas et de la foi en Dieu."
+      },
+      {
+        number: 11,
+        name: "هود",
+        englishName: "Hud",
+        frName: "Hud",
+        ayahs: 123,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite des histoires des prophètes et de la foi en Dieu."
+      },
+      {
+        number: 12,
+        name: "يوسف",
+        englishName: "Yusuf",
+        frName: "Joseph",
+        ayahs: 111,
+        revelationType: "Meccan",
+        desc: "Cette sourate raconte l'histoire de Joseph et sa patience face à l'adversité."
+      },
+      {
+        number: 13,
+        name: "الرعد",
+        englishName: "Ar-Ra'd",
+        frName: "Le Tonnerre",
+        ayahs: 43,
+        revelationType: "Medinan",
+        desc: "Cette sourate aborde la puissance de Dieu et les signes de sa création."
+      },
+      {
+        number: 14,
+        name: "إبراهيم",
+        englishName: "Ibrahim",
+        frName: "Abraham",
+        ayahs: 52,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite de la foi d'Abraham et de son appel à l'unicité de Dieu."
+      },
+      {
+        number: 15,
+        name: "الحجر",
+        englishName: "Al-Hijr",
+        frName: "La Pierre",
+        ayahs: 99,
+        revelationType: "Meccan",
+        desc: "Cette sourate aborde les histoires des prophètes et les conséquences du rejet de leur message."
+      },
+      {
+        number: 16,
+        name: "المعراج",
+        englishName: "Al-Mi'raj",
+        frName: "L'Ascension",
+        ayahs: 19,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite de l'ascension du Prophète Muhammad et des signes de Dieu."
+      },
+      {
+        number: 17,
+        name: "الإسراء",
+        englishName: "Al-Isra",
+        frName: "L'Ascension",
+        ayahs: 111,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite du voyage nocturne du Prophète Muhammad et des signes de Dieu."
+      },
+      {
+        number: 18,
+        name: "الكهف",
+        englishName: "Al-Kahf",
+        frName: "La Caverne",
+        ayahs: 110,
+        revelationType: "Meccan",
+        desc: "Cette sourate aborde des thèmes de foi, de patience et de la quête de la vérité."
+      },
+      {
+        number: 19,
+        name: "مريم",
+        englishName: "Maryam",
+        frName: "Marie",
+        ayahs: 98,
+        revelationType: "Meccan",
+        desc: "Cette sourate raconte l'histoire de Marie et de la naissance miraculeuse de Jésus."
+      },
+      {
+        number: 20,
+        name: "طه",
+        englishName: "Ta-Ha",
+        frName: "Ta-Ha",
+        ayahs: 135,
+        revelationType: "Meccan",
+        desc: "Cette sourate traite de la mission de Moïse et de la foi en Dieu."
+      },
+      {
+        number: 21,
+        name: "الأنبياء",
+        englishName: "Al-Anbiya",
+        frName: "Les Prophètes",
+        ayahs: 112,
+        revelationType: "Meccan",
+        desc: "Cette sourate évoque plusieurs prophètes et insiste sur l’unicité de Dieu."
+      },
+      {
+        number: 22,
+        name: "الحج",
+        englishName: "Al-Hajj",
+        frName: "Le Pèlerinage",
+        ayahs: 78,
+        revelationType: "Medinan",
+        desc: "Elle traite du pèlerinage, du jugement dernier et de l’obéissance à Dieu."
+      },
+      {
+        number: 23,
+        name: "المؤمنون",
+        englishName: "Al-Mu’minun",
+        frName: "Les Croyants",
+        ayahs: 118,
+        revelationType: "Meccan",
+        desc: "Elle décrit les qualités des vrais croyants et parle de Noé, Moïse et d’autres prophètes."
+      },
+      {
+        number: 24,
+        name: "النور",
+        englishName: "An-Nur",
+        frName: "La Lumière",
+        ayahs: 64,
+        revelationType: "Medinan",
+        desc: "Elle aborde les règles de moralité, la pudeur, et la métaphore de la lumière divine."
+      },
+      {
+        number: 25,
+        name: "الفرقان",
+        englishName: "Al-Furqan",
+        frName: "Le Discernement",
+        ayahs: 77,
+        revelationType: "Meccan",
+        desc: "Cette sourate met en avant la différence entre vérité et mensonge et décrit les serviteurs du Miséricordieux."
+      },
+      {
+        number: 26,
+        name: "الشعراء",
+        englishName: "Ash-Shu‘ara",
+        frName: "Les Poètes",
+        ayahs: 227,
+        revelationType: "Meccan",
+        desc: "Elle raconte l’histoire de plusieurs prophètes et met en garde contre le rejet du message divin."
+      },
+      {
+        number: 27,
+        name: "النمل",
+        englishName: "An-Naml",
+        frName: "Les Fourmis",
+        ayahs: 93,
+        revelationType: "Meccan",
+        desc: "Elle relate les récits de Salomon, de la reine de Saba et de Moïse."
+      },
+      {
+        number: 28,
+        name: "القصص",
+        englishName: "Al-Qasas",
+        frName: "Les Récits",
+        ayahs: 88,
+        revelationType: "Meccan",
+        desc: "Cette sourate raconte la vie de Moïse et met en avant la providence divine."
+      },
+      {
+        number: 29,
+        name: "العنكبوت",
+        englishName: "Al-‘Ankabut",
+        frName: "L’Araignée",
+        ayahs: 69,
+        revelationType: "Meccan",
+        desc: "Elle insiste sur l’épreuve de la foi et compare les faux dieux à une fragile toile d’araignée."
+      },
+      {
+        number: 30,
+        name: "الروم",
+        englishName: "Ar-Rum",
+        frName: "Les Romains",
+        ayahs: 60,
+        revelationType: "Meccan",
+        desc: "Cette sourate annonce la victoire des Byzantins et évoque les signes de Dieu dans la nature."
+      },
+      {
+        number: 31,
+        name: "لقمان",
+        englishName: "Luqman",
+        frName: "Luqman",
+        ayahs: 34,
+        revelationType: "Meccan",
+        desc: "Cette sourate contient les conseils de Luqman à son fils et insiste sur la reconnaissance envers Dieu."
+      },
+      {
+        number: 32,
+        name: "السجدة",
+        englishName: "As-Sajda",
+        frName: "La Prosternation",
+        ayahs: 30,
+        revelationType: "Meccan",
+        desc: "Elle traite de la création, de la révélation et du Jour du Jugement."
+      },
+      {
+        number: 33,
+        name: "الأحزاب",
+        englishName: "Al-Ahzab",
+        frName: "Les Coalisés",
+        ayahs: 73,
+        revelationType: "Medinan",
+        desc: "Elle parle de la bataille des Coalisés, des règles sociales et du statut du Prophète."
+      },
+      {
+        number: 34,
+        name: "سبإ",
+        englishName: "Saba",
+        frName: "Saba",
+        ayahs: 54,
+        revelationType: "Meccan",
+        desc: "Elle rappelle la gratitude envers Dieu à travers l’histoire du peuple de Saba."
+      },
+      {
+        number: 35,
+        name: "فاطر",
+        englishName: "Fatir",
+        frName: "Le Créateur",
+        ayahs: 45,
+        revelationType: "Meccan",
+        desc: "Cette sourate met en avant la création divine et les signes de la puissance de Dieu."
+      },
+      {
+        number: 36,
+        name: "يس",
+        englishName: "Ya-Sin",
+        frName: "Ya-Sin",
+        ayahs: 83,
+        revelationType: "Meccan",
+        desc: "Considérée comme le cœur du Coran, elle insiste sur le message prophétique et la résurrection."
+      },
+      {
+        number: 37,
+        name: "الصافات",
+        englishName: "As-Saffat",
+        frName: "Les Rangés",
+        ayahs: 182,
+        revelationType: "Meccan",
+        desc: "Elle décrit les anges rangés en adoration et relate les histoires de plusieurs prophètes."
+      },
+      {
+        number: 38,
+        name: "ص",
+        englishName: "Sad",
+        frName: "Sad",
+        ayahs: 88,
+        revelationType: "Meccan",
+        desc: "Cette sourate rappelle l’épreuve de David, Salomon et Job, et insiste sur le rappel du Coran."
+      },
+      {
+        number: 39,
+        name: "الزمر",
+        englishName: "Az-Zumar",
+        frName: "Les Groupes",
+        ayahs: 75,
+        revelationType: "Meccan",
+        desc: "Elle traite du monothéisme, du pardon de Dieu et de la récompense des croyants."
+      },
+      {
+        number: 40,
+        name: "غافر",
+        englishName: "Ghafir",
+        frName: "Le Pardonneur",
+        ayahs: 85,
+        revelationType: "Meccan",
+        desc: "Elle insiste sur la miséricorde divine et relate l’histoire de Pharaon et du croyant de sa famille."
+      },
+      {
+        number: 41,
+        name: "فصلت",
+        englishName: "Fussilat",
+        frName: "Les Versets Détaillés",
+        ayahs: 54,
+        revelationType: "Meccan",
+        desc: "Elle met en évidence la clarté du Coran et les signes de Dieu dans la création."
+      },
+{
+        number: 42,
+        name: "الشورى",
+        englishName: "Ash-Shura",
+        frName: "La Consultation",
+        ayahs: 53,
+        revelationType: "Meccan",
+        desc: "Elle évoque l’unicité divine et l’importance de la consultation entre croyants."
+      },
+{
+        number: 43,
+        name: "الزخرف",
+        englishName: "Az-Zukhruf",
+        frName: "L’Ornement",
+        ayahs: 89,
+        revelationType: "Meccan",
+        desc: "Elle dénonce l’attachement aux richesses et rappelle la mission du Prophète."
+      },
+{
+        number: 44,
+        name: "الدخان",
+        englishName: "Ad-Dukhan",
+        frName: "La Fumée",
+        ayahs: 59,
+        revelationType: "Meccan",
+        desc: "Elle parle des signes de la fin des temps et de la récompense des croyants."
+      },
+{
+        number: 45,
+        name: "الجاثية",
+        englishName: "Al-Jathiya",
+        frName: "L’Agenouillée",
+        ayahs: 37,
+        revelationType: "Meccan",
+        desc: "Cette sourate insiste sur la méditation des signes de Dieu et la responsabilité humaine."
+      },
+{
+        number: 46,
+        name: "الأحقاف",
+        englishName: "Al-Ahqaf",
+        frName: "Les Dunes",
+        ayahs: 35,
+        revelationType: "Meccan",
+        desc: "Elle évoque le peuple de ‘Ad, la mission de Moïse et le témoignage des djinns."
+      },
+{
+        number: 47,
+        name: "محمد",
+        englishName: "Muhammad",
+        frName: "Muhammad",
+        ayahs: 38,
+        revelationType: "Medinan",
+        desc: "Elle traite du combat, de la foi et de la rétribution dans l’au-delà."
+      },
+{
+        number: 48,
+        name: "الفتح",
+        englishName: "Al-Fath",
+        frName: "La Victoire Éclatante",
+        ayahs: 29,
+        revelationType: "Medinan",
+        desc: "Elle annonce la victoire des croyants et confirme la mission du Prophète."
+      },
+{
+        number: 49,
+        name: "الحجرات",
+        englishName: "Al-Hujurat",
+        frName: "Les Appartements",
+        ayahs: 18,
+        revelationType: "Medinan",
+        desc: "Cette sourate aborde les règles de respect, de fraternité et de bonne conduite."
+      },
+{
+        number: 50,
+        name: "ق",
+        englishName: "Qaf",
+        frName: "Qaf",
+        ayahs: 45,
+        revelationType: "Meccan",
+        desc: "Elle met l’accent sur la résurrection et le rappel constant du Coran."
+      },
+{
+        number: 51,
+        name: "الذاريات",
+        englishName: "Adh-Dhariyat",
+        frName: "Qui Éparpillent",
+        ayahs: 60,
+        revelationType: "Meccan",
+        desc: "Elle évoque la puissance divine et les récits de plusieurs prophètes."
+      },
+{
+        number: 52,
+        name: "الطور",
+        englishName: "At-Tur",
+        frName: "Le Mont",
+        ayahs: 49,
+        revelationType: "Meccan",
+        desc: "Elle décrit le destin des impies et la récompense des croyants au paradis."
+      },
+{
+        number: 53,
+        name: "النجم",
+        englishName: "An-Najm",
+        frName: "L’Étoile",
+        ayahs: 62,
+        revelationType: "Meccan",
+        desc: "Elle affirme la véracité de la révélation et condamne l’idolâtrie."
+      },
+{
+        number: 54,
+        name: "القمر",
+        englishName: "Al-Qamar",
+        frName: "La Lune",
+        ayahs: 55,
+        revelationType: "Meccan",
+        desc: "Cette sourate rappelle les anciens peuples détruits pour leur rejet des prophètes."
+      },
+{
+        number: 55,
+        name: "الرحمن",
+        englishName: "Ar-Rahman",
+        frName: "Le Tout Miséricordieux",
+        ayahs: 78,
+        revelationType: "Medinan",
+        desc: "Elle énumère les bienfaits de Dieu et répète la question : « Lequel des bienfaits de votre Seigneur nierez-vous ? »"
+      },
+{
+        number: 56,
+        name: "الواقعة",
+        englishName: "Al-Waqi‘a",
+        frName: "L’Événement",
+        ayahs: 96,
+        revelationType: "Meccan",
+        desc: "Elle décrit les événements de la fin du monde et la rétribution des croyants et des impies."
+      },
+{
+        number: 57,
+        name: "الحديد",
+        englishName: "Al-Hadid",
+        frName: "Le Fer",
+        ayahs: 29,
+        revelationType: "Medinan",
+        desc: "Elle insiste sur l’importance de la foi, de la charité et du détachement des biens terrestres."
+      },
+{
+        number: 58,
+        name: "المجادلة",
+        englishName: "Al-Mujadila",
+        frName: "La Discussion",
+        ayahs: 22,
+        revelationType: "Medinan",
+        desc: "Elle aborde des questions sociales et met en garde contre l’alliance avec les ennemis de Dieu."
+      },
+{
+        number: 59,
+        name: "الحشر",
+        englishName: "Al-Hashr",
+        frName: "L’Exode",
+        ayahs: 24,
+        revelationType: "Medinan",
+        desc: "Elle parle de l’exil des Banû Nadir et met en avant la grandeur des noms divins."
+      },
+{
+        number: 60,
+        name: "الممتحنة",
+        englishName: "Al-Mumtahina",
+        frName: "L’Éprouvée",
+        ayahs: 13,
+        revelationType: "Medinan",
+        desc: "Elle évoque les règles concernant les alliances et l’attitude envers les non-croyants."
+      },
+{
+        number: 61,
+        name: "الصف",
+        englishName: "As-Saff",
+        frName: "Le Rang",
+        ayahs: 14,
+        revelationType: "Medinan",
+        desc: "Cette sourate appelle à l’unité des croyants et à la sincérité dans le combat pour Dieu."
+      },
+{
+        number: 62,
+        name: "الجمعة",
+        englishName: "Al-Jumu‘a",
+        frName: "Le Vendredi",
+        ayahs: 11,
+        revelationType: "Medinan",
+        desc: "Elle parle de l’importance de la prière du vendredi et de l’obéissance à Dieu."
+      },
+{
+        number: 63,
+        name: "المنافقون",
+        englishName: "Al-Munafiqun",
+        frName: "Les Hypocrites",
+        ayahs: 11,
+        revelationType: "Medinan",
+        desc: "Elle dénonce l’hypocrisie et appelle à la sincérité dans la foi."
+      },
+{
+        number: 64,
+        name: "التغابن",
+        englishName: "At-Taghabun",
+        frName: "La Grande Perte",
+        ayahs: 18,
+        revelationType: "Medinan",
+        desc: "Elle rappelle la résurrection et encourage à la confiance en Dieu malgré les épreuves."
+      },
+{
+        number: 65,
+        name: "الطلاق",
+        englishName: "At-Talaq",
+        frName: "Le Divorce",
+        ayahs: 12,
+        revelationType: "Medinan",
+        desc: "Elle fixe les règles du divorce et insiste sur la crainte de Dieu."
+      },
+{
+        number: 66,
+        name: "التحريم",
+        englishName: "At-Tahrim",
+        frName: "L’Interdiction",
+        ayahs: 12,
+        revelationType: "Medinan",
+        desc: "Elle évoque certains événements dans la maison du Prophète et exhorte à la repentance."
+      },
+{
+        number: 67,
+        name: "الملك",
+        englishName: "Al-Mulk",
+        frName: "La Royauté",
+        ayahs: 30,
+        revelationType: "Meccan",
+        desc: "Elle insiste sur la souveraineté de Dieu et la contemplation de la création."
+      },
+{
+        number: 68,
+        name: "القلم",
+        englishName: "Al-Qalam",
+        frName: "La Plume",
+        ayahs: 52,
+        revelationType: "Meccan",
+        desc: "Elle défend le Prophète contre les accusations et rappelle l’histoire de l’homme au jardin."
+      },
+{
+        number: 69,
+        name: "الحاقة",
+        englishName: "Al-Haqqa",
+        frName: "L’Inevitable",
+        ayahs: 52,
+        revelationType: "Meccan",
+        desc: "Elle décrit les événements inévitables du Jour du Jugement."
+      },
+{
+        number: 70,
+        name: "المعارج",
+        englishName: "Al-Ma‘arij",
+        frName: "Les Voies d’Ascension",
+        ayahs: 44,
+        revelationType: "Meccan",
+        desc: "Elle parle du Jugement dernier et des qualités des croyants patients."
+      },
+{
+        number: 71,
+        name: "نوح",
+        englishName: "Nuh",
+        frName: "Noé",
+        ayahs: 28,
+        revelationType: "Meccan",
+        desc: "Elle raconte la prédication de Noé et la réaction de son peuple."
+      },
+{
+        number: 72,
+        name: "الجن",
+        englishName: "Al-Jinn",
+        frName: "Les Djinns",
+        ayahs: 28,
+        revelationType: "Meccan",
+        desc: "Elle rapporte le témoignage des djinns qui écoutent le Coran et reconnaissent la vérité."
+      },
+{
+        number: 73,
+        name: "المزمل",
+        englishName: "Al-Muzzammil",
+        frName: "L’Enveloppé",
+        ayahs: 20,
+        revelationType: "Meccan",
+        desc: "Elle exhorte le Prophète à la prière nocturne et à la patience."
+      },
+      {
+        number: 74,
+        name: "المدثر",
+        englishName: "Al-Muddaththir",
+        frName: "Le Revêtu d’un Manteau",
+        ayahs: 56,
+        revelationType: "Meccan",
+        desc: "Elle appelle le Prophète à avertir et décrit les peines de l’Enfer."
+      },
+      {
+        number: 75,
+        name: "القيامة",
+        englishName: "Al-Qiyama",
+        frName: "La Résurrection",
+        ayahs: 40,
+        revelationType: "Meccan",
+        desc: "Elle insiste sur la certitude de la résurrection et du jugement."
+      },
+      {
+        number: 76,
+        name: "الإنسان",
+        englishName: "Al-Insan",
+        frName: "L’Homme",
+        ayahs: 31,
+        revelationType: "Medinan",
+        desc: "Elle évoque la création de l’homme et la récompense des justes."
+      },
+      {
+        number: 77,
+        name: "المرسلات",
+        englishName: "Al-Mursalat",
+        frName: "Les Envoyés",
+        ayahs: 50,
+        revelationType: "Meccan",
+        desc: "Elle décrit les signes de la fin des temps et la destinée des mécréants."
+      },
+      {
+        number: 78,
+        name: "النبأ",
+        englishName: "An-Naba",
+        frName: "La Nouvelle",
+        ayahs: 40,
+        revelationType: "Meccan",
+        desc: "Elle évoque la résurrection et la rétribution de chacun."
+      },
+      {
+        number: 79,
+        name: "النازعات",
+        englishName: "An-Nazi‘at",
+        frName: "Les Anges qui Arrachent",
+        ayahs: 46,
+        revelationType: "Meccan",
+        desc: "Elle décrit les anges, la fin du monde et l’histoire de Moïse avec Pharaon."
+      },
+      {
+        number: 80,
+        name: "عبس",
+        englishName: "‘Abasa",
+        frName: "Il s’est Renfrogné",
+        ayahs: 42,
+        revelationType: "Meccan",
+        desc: "Elle rappelle la priorité donnée à l’enseignement aux croyants sincères."
+      },
+      {
+        number: 81,
+        name: "التكوير",
+        englishName: "At-Takwir",
+        frName: "L’Obscurcissement",
+        ayahs: 29,
+        revelationType: "Meccan",
+        desc: "Elle décrit les bouleversements cosmiques de la fin des temps."
+      },
+      {
+        number: 82,
+        name: "الإنفطار",
+        englishName: "Al-Infitar",
+        frName: "La Fente",
+        ayahs: 19,
+        revelationType: "Meccan",
+        desc: "Elle décrit le jugement final et l’enregistrement des actions humaines."
+      },
+      {
+        number: 83,
+        name: "المطففين",
+        englishName: "Al-Mutaffifin",
+        frName: "Les Fraudeurs",
+        ayahs: 36,
+        revelationType: "Meccan",
+        desc: "Elle condamne la fraude et décrit la récompense des pieux et le châtiment des pervers."
+      },
+      {
+        number: 84,
+        name: "الإنشقاق",
+        englishName: "Al-Inshiqaq",
+        frName: "La Déchirure",
+        ayahs: 25,
+        revelationType: "Meccan",
+        desc: "Elle décrit la séparation de la terre et du ciel lors de la fin du monde."
+      },
+      {
+        number: 85,
+        name: "البروج",
+        englishName: "Al-Buruj",
+        frName: "Les Constellations",
+        ayahs: 22,
+        revelationType: "Meccan",
+        desc: "Elle relate l’histoire des croyants persécutés et affirme la souveraineté de Dieu."
+      },
+      {
+        number: 86,
+        name: "الطارق",
+        englishName: "At-Tariq",
+        frName: "L’Astre Nocturne",
+        ayahs: 17,
+        revelationType: "Meccan",
+        desc: "Elle parle de la résurrection et du rôle des anges gardiens."
+      },
+      {
+        number: 87,
+        name: "الأعلى",
+        englishName: "Al-A‘la",
+        frName: "Le Très-Haut",
+        ayahs: 19,
+        revelationType: "Meccan",
+        desc: "Elle glorifie Dieu et rappelle la mission prophétique."
+      },
+      {
+        number: 88,
+        name: "الغاشية",
+        englishName: "Al-Ghashiya",
+        frName: "L’Enveloppante",
+        ayahs: 26,
+        revelationType: "Meccan",
+        desc: "Elle décrit les états des damnés et des bienheureux au Jour du Jugement."
+      },
+      {
+        number: 89,
+        name: "الفجر",
+        englishName: "Al-Fajr",
+        frName: "L’Aube",
+        ayahs: 30,
+        revelationType: "Meccan",
+        desc: "Elle rappelle la destruction des peuples anciens et le sort des croyants."
+      },
+      {
+        number: 90,
+        name: "البلد",
+        englishName: "Al-Balad",
+        frName: "La Cité",
+        ayahs: 20,
+        revelationType: "Meccan",
+        desc: "Elle met en avant les épreuves de la vie et le chemin de la vertu."
+      },
+      {
+        number: 91,
+        name: "الشمس",
+        englishName: "Ash-Shams",
+        frName: "Le Soleil",
+        ayahs: 15,
+        revelationType: "Meccan",
+        desc: "Elle souligne l’importance de purifier l’âme et rappelle le peuple de Thamud."
+      },
+      {
+        number: 92,
+        name: "الليل",
+        englishName: "Al-Layl",
+        frName: "La Nuit",
+        ayahs: 21,
+        revelationType: "Meccan",
+        desc: "Elle oppose les comportements des généreux et des avares."
+      },
+      {
+        number: 93,
+        name: "الضحى",
+        englishName: "Ad-Duha",
+        frName: "Le Jour Montant",
+        ayahs: 11,
+        revelationType: "Meccan",
+        desc: "Elle réconforte le Prophète en rappelant la bienveillance divine."
+      },
+      {
+        number: 94,
+        name: "الشرح",
+        englishName: "Ash-Sharh",
+        frName: "L’Ouverture",
+        ayahs: 8,
+        revelationType: "Meccan",
+        desc: "Elle rappelle les faveurs accordées au Prophète et l’appelle à persévérer."
+      },
+      {
+        number: 95,
+        name: "التين",
+        englishName: "At-Tin",
+        frName: "Le Figuier",
+        ayahs: 8,
+        revelationType: "Meccan",
+        desc: "Elle évoque la dignité de l’homme et le jugement dernier."
+      },
+{
+        number: 96,
+        name: "العلق",
+        englishName: "Al-‘Alaq",
+        frName: "L’Adhérence",
+        ayahs: 19,
+        revelationType: "Meccan",
+        desc: "Elle contient les premiers versets révélés et appelle à la lecture au nom de Dieu."
+      },
+{
+        number: 97,
+        name: "القدر",
+        englishName: "Al-Qadr",
+        frName: "La Destinée",
+        ayahs: 5,
+        revelationType: "Meccan",
+        desc: "Elle met en valeur la Nuit du Destin, meilleure que mille mois."
+      },
+{
+        number: 98,
+        name: "البينة",
+        englishName: "Al-Bayyina",
+        frName: "La Preuve",
+        ayahs: 8,
+        revelationType: "Medinan",
+        desc: "Elle insiste sur la venue de la preuve claire et sur la séparation entre croyants et mécréants."
+      },
+{
+        number: 99,
+        name: "الزلزلة",
+        englishName: "Az-Zalzala",
+        frName: "La Secousse",
+        ayahs: 8,
+        revelationType: "Medinan",
+        desc: "Elle décrit le tremblement de terre du Jour du Jugement."
+      },
+{
+        number: 100,
+        name: "العاديات",
+        englishName: "Al-‘Adiyat",
+        frName: "Les Coursiers",
+        ayahs: 11,
+        revelationType: "Meccan",
+        desc: "Elle décrit les chevaux de guerre et l’ingratitude de l’homme."
+      },
+{
+        number: 101,
+        name: "القارعة",
+        englishName: "Al-Qari‘a",
+        frName: "Le Fracas",
+        ayahs: 11,
+        revelationType: "Meccan",
+        desc: "Elle décrit le cataclysme du Jour du Jugement."
+      },
+{
+        number: 102,
+        name: "التكاثر",
+        englishName: "At-Takathur",
+        frName: "La Course aux Richesses",
+        ayahs: 8,
+        revelationType: "Meccan",
+        desc: "Elle met en garde contre l’avidité et rappelle la reddition des comptes."
+      },
+{
+        number: 103,
+        name: "العصر",
+        englishName: "Al-‘Asr",
+        frName: "Le Temps",
+        ayahs: 3,
+        revelationType: "Meccan",
+        desc: "Elle insiste sur la valeur du temps et les qualités menant au salut."
+      },
+{
+        number: 104,
+        name: "الهمزة",
+        englishName: "Al-Humaza",
+        frName: "Les Calomniateurs",
+        ayahs: 9,
+        revelationType: "Meccan",
+        desc: "Elle condamne la calomnie et l’accumulation des richesses."
+      },
+{
+        number: 105,
+        name: "الفيل",
+        englishName: "Al-Fil",
+        frName: "L’Éléphant",
+        ayahs: 5,
+        revelationType: "Meccan",
+        desc: "Elle rappelle la destruction de l’armée de l’éléphant venue attaquer la Kaaba."
+      },
+{
+        number: 106,
+        name: "قريش",
+        englishName: "Quraish",
+        frName: "Les Quraysh",
+        ayahs: 4,
+        revelationType: "Meccan",
+        desc: "Elle invite les Quraysh à adorer le Seigneur de la Kaaba."
+      },
+{
+        number: 107,
+        name: "الماعون",
+        englishName: "Al-Ma‘un",
+        frName: "L’Ustensile",
+        ayahs: 7,
+        revelationType: "Meccan",
+        desc: "Elle critique ceux qui négligent la prière et refusent l’aide aux nécessiteux."
+      },
+{
+        number: 108,
+        name: "الكوثر",
+        englishName: "Al-Kawthar",
+        frName: "L’Abondance",
+        ayahs: 3,
+        revelationType: "Meccan",
+        desc: "Elle promet au Prophète une grande abondance et appelle à la prière."
+      },
+{
+        number: 109,
+        name: "الكافرون",
+        englishName: "Al-Kafirun",
+        frName: "Les Mécréants",
+        ayahs: 6,
+        revelationType: "Meccan",
+        desc: "Elle affirme la séparation entre la foi des croyants et le rejet des mécréants."
+      },
+{
+        number: 110,
+        name: "النصر",
+        englishName: "An-Nasr",
+        frName: "Le Secours",
+        ayahs: 3,
+        revelationType: "Medinan",
+        desc: "Elle annonce la victoire de l’islam et la conversion massive des gens."
+      },
+{
+        number: 111,
+        name: "المسد",
+        englishName: "Al-Masad",
+        frName: "Les Fibres",
+        ayahs: 5,
+        revelationType: "Meccan",
+        desc: "Elle condamne Abû Lahab et son épouse pour leur hostilité envers le Prophète."
+      },
+{
+        number: 112,
+        name: "الإخلاص",
+        englishName: "Al-Ikhlas",
+        frName: "Le Monothéisme Pur",
+        ayahs: 4,
+        revelationType: "Meccan",
+        desc: "Elle affirme l’unicité absolue de Dieu."
+      },
+{
+        number: 113,
+        name: "الفلق",
+        englishName: "Al-Falaq",
+        frName: "L’Aube Naissante",
+        ayahs: 5,
+        revelationType: "Meccan",
+        desc: "Elle demande protection contre les maux extérieurs."
+      },
+{
+        number: 114,
+        name: "الناس",
+        englishName: "An-Nas",
+        frName: "Les Hommes",
+        ayahs: 6,
+        revelationType: "Meccan",
+        desc: "Elle appelle à chercher refuge auprès de Dieu contre le mal du tentateur."
+      }
+    ];
+
+    let filteredSourates = [...souratesData];
+
+    // Système de thèmes amélioré
+    let currentTheme = localStorage.getItem('theme') || 'auto';
+
+    function setTheme(theme) {
+      const root = document.documentElement;
+      
+      if (theme === 'light') {
+        root.setAttribute('data-theme', 'light');
+      } else if (theme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      
+      localStorage.setItem('theme', theme);
+      currentTheme = theme;
+    }
+
+    function toggleTheme() {
+      const themes = ['auto', 'light', 'dark'];
+      const currentIndex = themes.indexOf(currentTheme);
+      const nextTheme = themes[(currentIndex + 1) % themes.length];
+      
+      setTheme(nextTheme);
+      
+      const button = document.querySelector('.theme-toggle');
+      const labels = {
+        'auto': '🌙 Auto',
+        'light': '☀️ Clair',
+        'dark': '🌙 Sombre'
+      };
+      button.textContent = labels[nextTheme];
+    }
+
+    // Fonction pour créer une carte de sourate
+    function createSourateCard(sourate) {
+      const revelationClass = sourate.revelationType.toLowerCase();
+      const revelationLabel = sourate.revelationType === 'Meccan' ? 'Mecquoise' : 'Médinoise';
+      
+      return `
+        <div class="card" data-number="${sourate.number}" data-name="${sourate.name.toLowerCase()}" data-french="${sourate.frName.toLowerCase()}" data-english="${sourate.englishName.toLowerCase()}">
+          <div class="revelation-type ${revelationClass}">
+            ${revelationLabel}
+          </div>
+          <h3>
+            <span class="number">${sourate.number}.</span> ${sourate.name}
+          </h3>
+          <div class="english-name">${sourate.englishName}</div>
+          <div class="fr-title">${sourate.frName}</div>
+          <div class="desc">${sourate.desc}</div>
+          <div class="meta">
+            <strong>${sourate.ayahs}</strong> versets
+          </div>
+          <button onclick="readSourate(${sourate.number})">
+            📖 Lire la Sourate
+          </button>
+        </div>
+      `;
+    }
+
+    // Fonction pour afficher les sourates
+    function displaySourates(sourates = souratesData) {
+      const container = document.getElementById('souratesList');
+      
+      if (sourates.length === 0) {
+        container.innerHTML = `
+          <div class="no-results">
+            <h3>Aucune sourate trouvée</h3>
+            <p>Aucune sourate ne correspond à votre recherche. Essayez avec d'autres termes.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      container.innerHTML = sourates.map(createSourateCard).join('');
+      
+      // Animation d'apparition progressive
+      const cards = container.querySelectorAll('.card');
+      cards.forEach((card, index) => {
+        card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+      });
+    }
+
+    // Fonction de recherche
+    function searchSourates() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      
+      if (!query) {
+        filteredSourates = [...souratesData];
+      } else {
+        filteredSourates = souratesData.filter(sourate => {
+          return (
+            sourate.name.toLowerCase().includes(query) ||
+            sourate.frName.toLowerCase().includes(query) ||
+            sourate.englishName.toLowerCase().includes(query) ||
+            sourate.number.toString().includes(query) ||
+            sourate.desc.toLowerCase().includes(query)
+          );
+        });
+      }
+      
+      displaySourates(filteredSourates);
+    }
+
+    // Fonction pour lire une sourate - REDIRECTION IMPLÉMENTÉE
+    function readSourate(number) {
+      // Animation de feedback
+      const button = event.target;
+      const originalText = button.textContent;
+      
+      button.textContent = 'Chargement...';
+      button.style.transform = 'scale(0.95)';
+      button.disabled = true;
+      
+      // Animation de redirection avec délai pour l'UX
+      setTimeout(() => {
+        // Rediriger vers la page de lecture avec le numéro de sourate
+        window.location.href = `lecture.html?surah=${number}`;
+      }, 800);
+    }
+
+    // Mode haute luminosité
+    function enableHighContrast() {
+      document.body.classList.add('high-contrast');
+      localStorage.setItem('highContrast', 'true');
+    }
+
+    function disableHighContrast() {
+      document.body.classList.remove('high-contrast');
+      localStorage.setItem('highContrast', 'false');
+    }
+
+    // Détection automatique de la luminosité ambiante
+    if ('AmbientLightSensor' in window) {
+      try {
+        const sensor = new AmbientLightSensor();
+        sensor.addEventListener('reading', () => {
+          if (sensor.illuminance > 1000) {
+            enableHighContrast();
+          } else if (sensor.illuminance < 500) {
+            disableHighContrast();
+          }
+        });
+        sensor.start();
+      } catch (error) {
+        console.log('Capteur de luminosité non disponible');
+      }
+    }
+
+    // Raccourcis clavier
+    document.addEventListener('keydown', (e) => {
+      // Ctrl/Cmd + Shift + T pour changer de thème
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
+        e.preventDefault();
+        toggleTheme();
+      }
+      
+      // Ctrl/Cmd + Shift + H pour mode haute luminosité
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'H') {
+        e.preventDefault();
+        if (document.body.classList.contains('high-contrast')) {
+          disableHighContrast();
+        } else {
+          enableHighContrast();
+        }
+      }
+
+      // Ctrl/Cmd + F pour focus sur la recherche
+      if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+      }
+
+      // Échap pour vider la recherche
+      if (e.key === 'Escape' && document.activeElement === document.getElementById('searchInput')) {
+        document.getElementById('searchInput').value = '';
+        searchSourates();
+      }
+    });
+
+    // Initialisation au chargement de la page
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configurer le thème
+      setTheme(currentTheme);
+      
+      // Restaurer le mode haute luminosité si activé
+      if (localStorage.getItem('highContrast') === 'true') {
+        enableHighContrast();
+      }
+      
+      // Afficher les sourates
+      displaySourates();
+      
+      // Configurer la recherche en temps réel
+      const searchInput = document.getElementById('searchInput');
+      searchInput.addEventListener('input', searchSourates);
+      
+      // Animation smooth scroll pour les liens
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+
+      // Animation d'apparition progressive au scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observer les cartes lors du scroll
+      setTimeout(() => {
+        document.querySelectorAll('.card').forEach(card => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(30px)';
+          card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          observer.observe(card);
+        });
+      }, 100);
+
+      // Amélioration de l'accessibilité - gestion clavier
+      document.querySelectorAll('nav a, .card button').forEach(element => {
+        element.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.click();
+          }
+        });
+      });
+
+      // Gestion des stats dynamiques
+      const updateStats = () => {
+        const totalAyahs = filteredSourates.reduce((sum, sourate) => sum + sourate.ayahs, 0);
+        const statsElements = document.querySelectorAll('.stat .number');
+        
+        if (statsElements.length >= 2) {
+          statsElements[0].textContent = filteredSourates.length;
+          statsElements[1].textContent = totalAyahs;
+        }
+      };
+
+      // Mettre à jour les stats après chaque recherche
+      const originalSearch = searchSourates;
+      searchSourates = function() {
+        originalSearch();
+        setTimeout(updateStats, 100);
+      };
+
+      // Focus automatique sur la recherche avec délai
+      setTimeout(() => {
+        if (window.innerWidth > 768) {
+          searchInput.focus();
+        }
+      }, 1500);
+    });
+
+    // Gestion des erreurs d'images
+    document.addEventListener('error', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.target.style.display = 'none';
+      }
+    }, true);
+
+    // Performance: Intersection Observer pour les animations
+    if ('IntersectionObserver' in window) {
+      const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          }
+        });
+      });
+
+      // Observer d'autres éléments pour l'animation
+      setTimeout(() => {
+        document.querySelectorAll('.card, .stat').forEach(el => {
+          animateOnScroll.observe(el);
+        });
+      }, 500);
+    }
+  </script>
+</body>
+</html>
